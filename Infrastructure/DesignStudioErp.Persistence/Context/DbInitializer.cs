@@ -1,10 +1,9 @@
-﻿namespace DesignStudioErp.Persistence.Context
+﻿namespace DesignStudioErp.Persistence.Context;
+
+public class DbInitializer
 {
-    internal class DbInitializer
+    public static void Initialize(ApplicationDbContext context)
     {
-        public static void Initialize(ApplicationDbContext context)
-        {
-            context.Database.EnsureCreated();
-        }
+        context.Database.EnsureCreated();
     }
 }

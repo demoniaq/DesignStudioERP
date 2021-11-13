@@ -3,21 +3,20 @@ using DesignStudioErp.Domain;
 using DesignStudioErp.Persistence.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace DesignStudioErp.Persistence.Context
+namespace DesignStudioErp.Persistence.Context;
+
+public class ApplicationDbContext : DbContext, IApplicationDbContext
 {
-    internal class ApplicationDbContext : DbContext, IApplicationDbContext
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        modelBuilder.ApplyConfiguration(new MaterialConfiguration());
+        modelBuilder.ApplyConfiguration(new MeasConfiguration());
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfiguration(new MaterialConfiguration());
-            modelBuilder.ApplyConfiguration(new MeasConfiguration());
-
-            base.OnModelCreating(modelBuilder);
-        }
-
-        public DbSet<Material>? Materials { get; set; }
-        public DbSet<Meas>? Meas { get; set; }
+        base.OnModelCreating(modelBuilder);
     }
+
+    public DbSet<Material>? Materials { get; set; }
+    public DbSet<Meas>? Meas { get; set; }
 }

@@ -2,17 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DesignStudioErp.Persistence.EntityConfigurations
-{
-    internal class MaterialConfiguration : BaseEntityConfiguration<Material>, IEntityTypeConfiguration<Material>
-    {
-        public override void Configure(EntityTypeBuilder<Material> builder)
-        {
-            base.Configure(builder);
+namespace DesignStudioErp.Persistence.EntityConfigurations;
 
-            builder.Property(x => x.Name)
-                   .IsRequired()
-                   .HasMaxLength(255);
-        }
+internal class MaterialConfiguration : BaseEntityConfiguration<Material>, IEntityTypeConfiguration<Material>
+{
+    public override void Configure(EntityTypeBuilder<Material> builder)
+    {
+        base.Configure(builder);
+
+        builder.Property(x => x.Name)
+               .IsRequired()
+               .HasMaxLength(255);
     }
 }
