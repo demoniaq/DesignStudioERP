@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{382F1CCD-56EA-4EF9-A890-FF7FD8AD01D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D7AFEBD9-C3B1-4C04-8808-B8C2498D6112}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{5DCA1391-6C89-495F-81DC-ADC1D8D1FEE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{651E624F-E045-4C7B-935A-2BD5799AC4B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesingStudioERP.Domain", "DesingStudioERP.Domain\DesingStudioERP.Domain.csproj", "{AE8AD076-9A25-4785-B14D-33BF550CB5FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesingStudioERP.Persistence", "DesingStudioERP.Persistence\DesingStudioERP.Persistence.csproj", "{0A6D7FD0-E0B3-436D-A85C-9981A8CEC36C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE8AD076-9A25-4785-B14D-33BF550CB5FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE8AD076-9A25-4785-B14D-33BF550CB5FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE8AD076-9A25-4785-B14D-33BF550CB5FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE8AD076-9A25-4785-B14D-33BF550CB5FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A6D7FD0-E0B3-436D-A85C-9981A8CEC36C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A6D7FD0-E0B3-436D-A85C-9981A8CEC36C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A6D7FD0-E0B3-436D-A85C-9981A8CEC36C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A6D7FD0-E0B3-436D-A85C-9981A8CEC36C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AE8AD076-9A25-4785-B14D-33BF550CB5FA} = {382F1CCD-56EA-4EF9-A890-FF7FD8AD01D6}
+		{0A6D7FD0-E0B3-436D-A85C-9981A8CEC36C} = {D7AFEBD9-C3B1-4C04-8808-B8C2498D6112}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A87B114-42D6-4752-BD6E-644E008C0245}
+	EndGlobalSection
+EndGlobal
