@@ -55,14 +55,17 @@ using (var scope = app.Services.CreateScope())
 }
 #endregion Init Db
 
-#region Configure the HTTP request pipeline.
+#region Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
 }
 
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+});
 
 app.UseRouting();
 app.UseHttpsRedirection();
@@ -73,6 +76,6 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-#endregion Configure the HTTP request pipeline.
+#endregion Configure the HTTP request pipeline
 
 app.Run();

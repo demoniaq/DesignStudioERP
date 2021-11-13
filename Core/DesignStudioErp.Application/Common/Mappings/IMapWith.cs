@@ -2,8 +2,7 @@
 
 namespace DesignStudioErp.Application.Common.Mappings;
 
-internal interface IMapWith<T>
+public interface IMapWith<T>
 {
-    void Mapping(Profile profile) =>
-        profile.CreateMap(typeof(T), GetType());
+    void Mapping(Profile profile) => profile.CreateMap(typeof(T), GetType());
 }

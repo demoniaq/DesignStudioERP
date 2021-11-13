@@ -8,9 +8,9 @@ namespace DesignStudioErp.Persistence;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddPersistance(this IServiceCollection services, IConfiguration configuration, string settingPath)
+    public static IServiceCollection AddPersistance(this IServiceCollection services, IConfiguration configuration, string setting)
     {
-        var connectionString = configuration[settingPath];
+        var connectionString = configuration[setting];
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseSqlServer(connectionString);
