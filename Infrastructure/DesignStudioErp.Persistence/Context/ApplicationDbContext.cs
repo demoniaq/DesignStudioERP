@@ -1,9 +1,9 @@
 ﻿using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Domain;
-using DesignStudioErp.Persistence.EntityTypeConfiguration;
+using DesignStudioErp.Persistence.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
-namespace DesignStudioErp.Persistence
+namespace DesignStudioErp.Persistence.Context
 {
     internal class ApplicationDbContext : DbContext, IApplicationDbContext
     {

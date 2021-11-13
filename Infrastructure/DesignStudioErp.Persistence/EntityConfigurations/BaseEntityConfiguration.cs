@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DesignStudioErp.Persistence.EntityTypeConfiguration
+namespace DesignStudioErp.Persistence.EntityConfigurations
 {
     internal abstract class BaseEntityConfiguration<TBaseModel> : IEntityTypeConfiguration<TBaseModel> where TBaseModel : BaseModel
     {

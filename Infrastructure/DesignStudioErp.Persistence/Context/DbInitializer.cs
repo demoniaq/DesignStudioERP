@@ -1,4 +1,4 @@
-﻿namespace DesignStudioErp.Persistence
+﻿namespace DesignStudioErp.Persistence.Context
 {
     internal class DbInitializer
     {

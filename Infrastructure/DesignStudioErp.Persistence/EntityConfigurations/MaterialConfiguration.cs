@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace DesignStudioErp.Persistence.EntityTypeConfiguration
+namespace DesignStudioErp.Persistence.EntityConfigurations
 {
     internal class MaterialConfiguration : BaseEntityConfiguration<Material>, IEntityTypeConfiguration<Material>
     {
