@@ -1,49 +1,51 @@
-﻿namespace DesignStudioErp.Application.Interfaces;
+﻿using DesignStudioErp.Domain;
+
+namespace DesignStudioErp.Application.Interfaces;
 
 /// <summary>
 /// Generic interface for repositories
 /// </summary>
-/// <typeparam name="T"></typeparam>
-public interface IRepo<T>
+/// <typeparam name="TEntity"></typeparam>
+public interface IRepo<TEntity> where TEntity : BaseModel
 {
     /// <summary>
     /// Get all entities
     /// </summary>
     /// <returns></returns>
-    Task<IEnumerable<T>> GetAllAsync();
+    Task<IEnumerable<TEntity>> GetAllAsync();
 
     /// <summary>
     /// Get entities by condition
     /// </summary>
     /// <param name="predicate"></param>
     /// <returns></returns>
-    Task<IEnumerable<T>> GetAllByConditionAsync(Func<T, bool> predicate);
+    Task<IEnumerable<TEntity>> GetAllByConditionAsync(Func<TEntity, bool> predicate);
 
     /// <summary>
     /// Get entity by id
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    Task<T> GetByIdAsync(Guid id);
+    Task<TEntity> GetByIdAsync(Guid id);
 
     /// <summary>
     /// Create entity
     /// </summary>
     /// <param name="entity"></param>
     /// <returns></returns>
-    Task CreateAsync(T entity);
+    Task CreateAsync(TEntity entity);
 
     /// <summary>
     /// Update entity
     /// </summary>
     /// <param name="entity"></param>
     /// <returns></returns>
-    Task UpdateAsync(T entity);
+    Task UpdateAsync(TEntity entity);
 
     /// <summary>
     /// Delete entity
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="entity"></param>
     /// <returns></returns>
-    Task DeleteAsync(Guid id);
+    Task DeleteAsync(TEntity entity);
 }
