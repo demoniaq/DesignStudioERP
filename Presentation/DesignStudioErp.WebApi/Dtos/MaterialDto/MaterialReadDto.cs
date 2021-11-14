@@ -11,5 +11,5 @@ public class MaterialReadDto : MaterialBaseDto, IMapWith<Material>
     /// </summary>
     public Guid Id { get; set; }
 
-    public void Mapping(Profile profile) => profile.CreateMap(typeof(Material), GetType());   
+    public void Mapping(Profile profile) => profile.CreateMap(typeof(Material), GetType());
 }

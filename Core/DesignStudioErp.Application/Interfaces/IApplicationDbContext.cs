@@ -9,6 +9,6 @@ public interface IApplicationDbContext
     DbSet<MeasUnit>? MeasUnits { get; set; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
-    
+
     DbSet<TEntity>? Set<TEntity>() where TEntity : class;
 }
