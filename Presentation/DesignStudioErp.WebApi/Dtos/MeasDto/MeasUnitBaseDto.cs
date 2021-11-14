@@ -1,6 +1,6 @@
 namespace DesignStudioErp.WebApi.Dtos.MeasDto;
 
-public abstract class MeasBaseDto
+public abstract class MeasUnitBaseDto
 {
     /// <summary>
     /// Meas name

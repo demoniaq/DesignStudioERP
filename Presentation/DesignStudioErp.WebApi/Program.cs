@@ -18,7 +18,7 @@ builder.Services.AddAutoMapper(config =>
 
 #region Add services to the container.
 builder.Services.AddPersistance(builder.Configuration, "ConnectionStrings:MsSqlConnection");
-builder.Services.AddScoped<IRepo<Meas>, Repo<Meas>>();
+builder.Services.AddScoped<IRepo<MeasUnit>, Repo<MeasUnit>>();
 #endregion Add services to the container.
 
 #region CORS

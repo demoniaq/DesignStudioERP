@@ -1,18 +1,35 @@
 ﻿using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace DesignStudioErp.Application.Repo;
 
 public class Repo<T> : IRepo<T> where T : BaseModel
 {
+    private readonly IApplicationDbContext? _context;
+    private readonly DbSet<T> _entities;
+
+    /// <summary>
+    /// ctor
+    /// </summary>
+    /// <param name="context"></param>
+    /// <exception cref="ArgumentNullException"></exception>
+    public Repo(IApplicationDbContext context)
+    {
+        _context = context ?? throw new ArgumentNullException(nameof(context));
+        _entities = _context.Set<T>() ?? throw new NullReferenceException(nameof(_entities));
+    }
+
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public Task<IEnumerable<T>> GetAllAsync()
+    public async Task<IEnumerable<T>> GetAllAsync()
     {
-        throw new NotImplementedException();
+        var entities = await _entities.ToListAsync();
+
+        return entities;
     }
 
     /// <summary>

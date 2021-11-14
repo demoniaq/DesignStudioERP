@@ -3,13 +3,13 @@
 /// <summary>
 /// Meas
 /// </summary>
-public class Meas : BaseModel
+public class MeasUnit : BaseModel
 {
     /// <summary>
     /// ctor
     /// </summary>
     /// <param name="name"></param>
-    public Meas(string name)
+    public MeasUnit(string name)
     {
         Name = name;
     }

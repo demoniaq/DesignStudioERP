@@ -12,11 +12,11 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new MaterialConfiguration());
-        modelBuilder.ApplyConfiguration(new MeasConfiguration());
+        modelBuilder.ApplyConfiguration(new MeasUnitConfiguration());
 
         base.OnModelCreating(modelBuilder);
     }
 
     public DbSet<Material>? Materials { get; set; }
-    public DbSet<Meas>? Meas { get; set; }
+    public DbSet<MeasUnit>? MeasUnits { get; set; }
 }

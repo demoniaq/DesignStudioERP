@@ -1,3 +1,4 @@
+using AutoMapper;
 using DesignStudioErp.Application.Common.Mappings;
 using DesignStudioErp.Domain;
 
@@ -9,4 +10,6 @@ public class MaterialReadDto : MaterialBaseDto, IMapWith<Material>
     /// Id
     /// </summary>
     public Guid Id { get; set; }
+
+    public void Mapping(Profile profile) => profile.CreateMap(typeof(Material), GetType());   
 }
