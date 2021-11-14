@@ -1,1 +1,1 @@
-Тут различные интеграции со сторонними сервисами
+Some intergrations will adds there

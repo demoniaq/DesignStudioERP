@@ -1,7 +1,7 @@
 ﻿namespace DesignStudioErp.Domain;
 
 /// <summary>
-/// Единица измерения
+/// Meas
 /// </summary>
 public class Meas : BaseModel
 {
@@ -15,7 +15,7 @@ public class Meas : BaseModel
     }
 
     /// <summary>
-    /// Название единицы измерения
+    /// Name of meas
     /// </summary>
     public string Name { get; set; }
 

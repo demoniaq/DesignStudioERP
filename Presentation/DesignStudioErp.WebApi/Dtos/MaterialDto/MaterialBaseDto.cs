@@ -1,14 +1,14 @@
 namespace DesignStudioErp.WebApi.Dtos.MaterialDto;
 
-internal abstract class MaterialBaseDto
+public abstract class MaterialBaseDto
 {
     /// <summary>
-    /// Название материала
+    /// Materail name
     /// </summary>
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
-    /// FK единица изменения
+    /// FK meas
     /// </summary>
     public Guid MeasId { get; set; }
 }

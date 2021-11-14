@@ -1,7 +1,7 @@
 ﻿namespace DesignStudioErp.Domain;
 
 /// <summary>
-/// Материал
+/// Material
 /// </summary>
 public class Material : BaseModel
 {
@@ -15,12 +15,12 @@ public class Material : BaseModel
     }
 
     /// <summary>
-    /// Название материала
+    /// Name of material
     /// </summary>
     public string Name { get; set; }
 
     /// <summary>
-    /// FK единица изменения
+    /// FK to meas
     /// </summary>
     public Guid MeasId { get; set; }
 

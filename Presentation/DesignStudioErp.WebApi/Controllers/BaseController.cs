@@ -1,7 +1,6 @@
-using System;
-using System.Security.Claims;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace DesignStudioErp.WebApi.Controllers;
 
@@ -11,13 +10,41 @@ namespace DesignStudioErp.WebApi.Controllers;
 public abstract class BaseController : ControllerBase
 {
     private ILogger<BaseController>? _logger;
-    protected ILogger<BaseController>? Logger => _logger ??= HttpContext.RequestServices.GetService<ILogger<BaseController>>();
+    protected ILogger<BaseController> Logger
+    {
+        get
+        {
+            _logger ??= HttpContext.RequestServices.GetService<ILogger<BaseController>>();
+            if (_logger == null)
+            {
+                throw new NullReferenceException(nameof(Logger));
+            }
+            return _logger;
+        }
+    }
 
-    private IMapper _mapper;
-    protected IMapper Mapper => _mapper ??= HttpContext.RequestServices.GetService<IMapper>();
+    private IMapper? _mapper;
+    protected IMapper Mapper
+    {
+        get
+        {
+            _mapper ??= HttpContext.RequestServices.GetService<IMapper>();
+            if (_mapper == null)
+            {
+                throw new NullReferenceException(nameof(Mapper));
+            }
+            return _mapper;
+        }
+    }
 
-
-    internal Guid UserId => !User.Identity.IsAuthenticated
-        ? Guid.Empty
-        : Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+    internal Guid UserId
+    {
+        get
+        {
+            bool isAuthenticated = User.Identity is not null && User.Identity.IsAuthenticated;
+            return isAuthenticated
+                   ? Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))
+                   : Guid.Empty;
+        }
+    }
 }

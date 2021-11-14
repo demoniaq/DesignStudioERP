@@ -1,26 +1,30 @@
+using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Domain;
-using DesignStudioErp.WebApi.Dtos.MaterialDto;
+using DesignStudioErp.WebApi.Dtos.MeasDto;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesignStudioErp.WebApi.Controllers;
 
 /// <summary>
-/// Единицы измерения
+/// Meas
 /// </summary>
 public class MeasController : BaseController
 {
-    [HttpPost]
-    //[SwaggerResponse((int)ApiHttpStatusCode.Created, Type = typeof(MaterialCreateDto))]
-    public ActionResult<MaterialReadDto> CreateMaterial([FromBody] MaterialCreateDto materialCreateDto)
+    private readonly IRepo<Meas> _repo;
+
+    public MeasController(IRepo<Meas> repo)
     {
-        Material material = Mapper.Map<Material>(materialCreateDto);
+        _repo = repo ?? throw new ArgumentNullException(nameof(repo));
+    }
 
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<MeasReadDto>>> GetAllAsync()
+    {
+        var meas = await _repo.GetAllAsync();
 
-        MaterialReadDto materialReadDto = default;
+        var measDto = Mapper.Map<MeasReadDto>(meas);
 
-        return CreatedAtRoute(nameof(GetOrderByIdAsync),
-                              new { id = materialReadDto.Id },
-                              materialReadDto);
+        return Ok(measDto);
     }
 
 

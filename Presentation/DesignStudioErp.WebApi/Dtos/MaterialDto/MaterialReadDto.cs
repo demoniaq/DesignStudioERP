@@ -3,7 +3,7 @@ using DesignStudioErp.Domain;
 
 namespace DesignStudioErp.WebApi.Dtos.MaterialDto;
 
-internal class MaterialReadDto : MaterialBaseDto, IMapWith<Material>
+public class MaterialReadDto : MaterialBaseDto, IMapWith<Material>
 {
     /// <summary>
     /// Id

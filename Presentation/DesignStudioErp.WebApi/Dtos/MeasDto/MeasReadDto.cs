@@ -3,7 +3,7 @@ using DesignStudioErp.Domain;
 
 namespace DesignStudioErp.WebApi.Dtos.MeasDto;
 
-internal class MeasReadDto : MeasBaseDto, IMapWith<Meas>
+public class MeasReadDto : MeasBaseDto, IMapWith<Meas>
 {
     /// <summary>
     /// Id

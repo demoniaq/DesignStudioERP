@@ -1,8 +1,10 @@
-using DesignStudioErp.Persistence.Context;
-using System.Reflection;
 using DesignStudioErp.Application.Common.Mappings;
 using DesignStudioErp.Application.Interfaces;
+using DesignStudioErp.Application.Repo;
+using DesignStudioErp.Domain;
 using DesignStudioErp.Persistence;
+using DesignStudioErp.Persistence.Context;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,12 +18,12 @@ builder.Services.AddAutoMapper(config =>
 
 #region Add services to the container.
 builder.Services.AddPersistance(builder.Configuration, "ConnectionStrings:MsSqlConnection");
+builder.Services.AddScoped<IRepo<Meas>, Repo<Meas>>();
 #endregion Add services to the container.
 
 #region CORS
 builder.Services.AddCors(options =>
 {
-    // Политика доступ всем
     options.AddPolicy("AllowAll", policy =>
     {
         policy.AllowAnyHeader();
@@ -50,7 +52,7 @@ using (var scope = app.Services.CreateScope())
     }
     catch (Exception ex)
     {
-        // TODO
+        // TODO handle exception
     }
 }
 #endregion Init Db
@@ -70,7 +72,7 @@ app.UseSwaggerUI(options =>
 app.UseRouting();
 app.UseHttpsRedirection();
 
-app.UseCors("AllowAll"); // TODO Временно полный доступ
+app.UseCors("AllowAll"); // TODO temporary
 
 app.UseAuthentication();
 app.UseAuthorization();

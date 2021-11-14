@@ -1,0 +1,1 @@
+dotnet publish "Presentation/DesignStudioErp.WebApi/DesignStudioERP.WebApi.csproj" -c Release -o ./_Publish/DesignStudioERP -p:PublishProfile=FolderProfile

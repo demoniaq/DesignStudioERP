@@ -3,4 +3,4 @@ using DesignStudioErp.Domain;
 
 namespace DesignStudioErp.WebApi.Dtos.MaterialDto;
 
-internal class MaterialCreateDto : MaterialBaseDto, IMapWith<Material> { }
+public class MaterialCreateDto : MaterialBaseDto, IMapWith<Material> { }

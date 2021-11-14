@@ -1,10 +1,10 @@
 namespace DesignStudioErp.WebApi.Dtos.MeasDto;
 
-internal abstract class MeasBaseDto
+public abstract class MeasBaseDto
 {
     /// <summary>
-    /// Название единицы измерения
+    /// Meas name
     /// </summary>
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
 }
