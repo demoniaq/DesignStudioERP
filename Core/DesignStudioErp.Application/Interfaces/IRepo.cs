@@ -9,6 +9,12 @@ namespace DesignStudioErp.Application.Interfaces;
 public interface IRepo<TEntity> where TEntity : BaseModel
 {
     /// <summary>
+    /// Save changes
+    /// </summary>
+    /// <returns></returns>
+    Task SaveChangesAsync();
+
+    /// <summary>
     /// Get all entities
     /// </summary>
     /// <returns></returns>
