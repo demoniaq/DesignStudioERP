@@ -1,2 +1,5 @@
 TODO
-- 
+- Add Docker support
+- Add Compression service
+- Add more Swagger support
+- Add publish

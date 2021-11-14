@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.WebApi", "P
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4872A1AD-B644-44F4-9BC1-E48AE045DCD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignStudioErp.BlazorWasm", "Presentation\DesignStudioErp.BlazorWasm\DesignStudioErp.BlazorWasm.csproj", "{57A5A83D-E72F-4D5F-B05A-6AAC200365DE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignStudioErp.BlazorWasm", "FrontEnd\DesignStudioErp.BlazorWasm\DesignStudioErp.BlazorWasm.csproj", "{57A5A83D-E72F-4D5F-B05A-6AAC200365DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
