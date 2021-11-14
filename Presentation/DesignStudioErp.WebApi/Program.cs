@@ -1,9 +1,8 @@
-using DesignStudioErp.Application.Common.Mappings;
+using DesignStudioErp.Application.AutoMapper;
 using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Application.Repo;
-using DesignStudioErp.Domain;
-using DesignStudioErp.Persistence;
 using DesignStudioErp.Persistence.Context;
+using DesignStudioErp.Persistence.Extensions;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,13 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAutoMapper(config =>
 {
     config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
-    config.AddProfile(new AssemblyMappingProfile(typeof(IApplicationDbContext).Assembly));
+    //config.AddProfile(new AssemblyMappingProfile(typeof(IApplicationDbContext).Assembly));
 });
 #endregion Automapper
 
 #region Add services to the container.
-builder.Services.AddPersistance(builder.Configuration, "ConnectionStrings:MsSqlConnection");
-builder.Services.AddScoped<IRepo<MeasUnit>, Repo<MeasUnit>>();
+builder.Services.AddPersistance(builder.Configuration, "ConnectionStrings:MsSqlConnection"); // TODO remove constant
+builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>)); // Add generic Repo
 #endregion Add services to the container.
 
 #region CORS

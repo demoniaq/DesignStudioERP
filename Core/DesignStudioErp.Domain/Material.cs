@@ -21,8 +21,12 @@ public class Material : BaseModel
 
     /// <summary>
     /// FK to meas
-    /// </summary>
-    public Guid MeasId { get; set; }
+    /// </summary>    
+    public Guid MeasUnitId { get; set; }
 
+    /// <summary>
+    /// Meas unit
+    /// </summary>
+    public MeasUnit? MeasUnit { get; set; }
 
 }

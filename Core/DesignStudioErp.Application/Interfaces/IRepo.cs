@@ -1,5 +1,9 @@
 ﻿namespace DesignStudioErp.Application.Interfaces;
 
+/// <summary>
+/// Generic interface for repositories
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public interface IRepo<T>
 {
     /// <summary>

@@ -4,6 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DesignStudioErp.Application.Repo;
 
+/// <summary>
+/// Generic repository
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class Repo<T> : IRepo<T> where T : BaseModel
 {
     private readonly IApplicationDbContext? _context;
@@ -28,7 +32,6 @@ public class Repo<T> : IRepo<T> where T : BaseModel
     public async Task<IEnumerable<T>> GetAllAsync()
     {
         var entities = await _entities.ToListAsync();
-
         return entities;
     }
 
@@ -49,9 +52,10 @@ public class Repo<T> : IRepo<T> where T : BaseModel
     /// <param name="id"></param>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public Task<T> GetByIdAsync(Guid id)
+    public async Task<T> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var entity = await _entities.FirstOrDefaultAsync(x => x.Id == id);
+        return entity;
     }
 
     /// <summary>

@@ -5,7 +5,7 @@ using System.Security.Claims;
 namespace DesignStudioErp.WebApi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 [Produces("application/json")]
 public abstract class BaseController : ControllerBase
 {

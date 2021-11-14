@@ -10,8 +10,21 @@ internal class MaterialConfiguration : BaseEntityConfiguration<Material>, IEntit
     {
         base.Configure(builder);
 
+        #region Name
         builder.Property(x => x.Name)
                .IsRequired()
                .HasMaxLength(255);
+        #endregion Name
+
+        #region MeasUnit
+        builder.Property(e => e.MeasUnitId)
+            .IsRequired()
+            .HasColumnType("uniqueidentifier");
+
+        builder.HasOne(x => x.MeasUnit)
+            .WithMany()
+            .HasForeignKey(x => x.MeasUnitId)
+            .OnDelete(DeleteBehavior.Cascade);
+        #endregion MeasUnit
     }
 }

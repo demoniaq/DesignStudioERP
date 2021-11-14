@@ -1,5 +1,5 @@
 using AutoMapper;
-using DesignStudioErp.Application.Common.Mappings;
+using DesignStudioErp.Application.AutoMapper;
 using DesignStudioErp.Domain;
 
 namespace DesignStudioErp.WebApi.Dtos.MeasDto;
