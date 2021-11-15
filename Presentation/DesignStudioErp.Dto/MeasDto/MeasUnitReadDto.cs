@@ -2,7 +2,7 @@ using AutoMapper;
 using DesignStudioErp.Application.AutoMapper;
 using DesignStudioErp.Domain;
 
-namespace DesignStudioErp.WebApi.Dtos.MeasDto;
+namespace DesignStudioErp.Dto.MeasDto;
 
 public class MeasUnitReadDto : MeasUnitBaseDto, IMapWith<MeasUnit>
 {

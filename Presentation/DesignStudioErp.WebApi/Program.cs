@@ -1,6 +1,7 @@
 using DesignStudioErp.Application.AutoMapper;
 using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Application.Repo;
+using DesignStudioErp.Dto.MeasDto;
 using DesignStudioErp.Persistence.Context;
 using DesignStudioErp.Persistence.Extensions;
 using System.Reflection;
@@ -9,9 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 #region Automapper
 builder.Services.AddAutoMapper(config =>
-{
-    config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
-    //config.AddProfile(new AssemblyMappingProfile(typeof(IApplicationDbContext).Assembly));
+{       
+    config.AddProfile(new AssemblyMappingProfile(typeof(MeasUnitBaseDto).Assembly)); // Находим сборку по классу MeasUnitBaseDto
+    //config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly())); // Текущая сборка
+    //config.AddProfile(new AssemblyMappingProfile(typeof(IApplicationContext).Assembly));
 });
 #endregion Automapper
 

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DesignStudioErp.WebApi.Dtos.MaterialDto;
+namespace DesignStudioErp.Dto.MaterialDto;
 
 public abstract class MaterialBaseDto
 {

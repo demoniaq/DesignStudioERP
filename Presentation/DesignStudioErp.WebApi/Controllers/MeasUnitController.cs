@@ -1,7 +1,7 @@
 using DesignStudioErp.Application.HandBooks;
 using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Domain;
-using DesignStudioErp.WebApi.Dtos.MeasDto;
+using DesignStudioErp.Dto.MeasDto;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
