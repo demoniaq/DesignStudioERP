@@ -8,7 +8,7 @@ namespace DesignStudioErp.Persistence.Context;
 /// <summary>
 /// Db context
 /// </summary>
-public class ApplicationDbContext : DbContext, IApplicationDbContext
+public class ApplicationDbContext : DbContext, IApplicationContext
 {
     /// <summary>
     /// ctor
@@ -17,7 +17,7 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     /// <summary>
-    /// Aplly configurations
+    /// Apply configurations
     /// </summary>
     /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,8 +29,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     }
 
     #region DbSets
-    public DbSet<Material>? Materials { get; set; }
     public DbSet<MeasUnit>? MeasUnits { get; set; }
+    public DbSet<Material>? Materials { get; set; }
     #endregion DbSets
 
 }

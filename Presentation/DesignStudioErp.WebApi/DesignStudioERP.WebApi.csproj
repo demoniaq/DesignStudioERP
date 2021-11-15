@@ -12,5 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\DesignStudioErp.Application\DesignStudioErp.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\DesignStudioErp.Persistence\DesignStudioErp.Persistence.csproj" />
+    <ProjectReference Include="..\DesignStudioErp.Dto\DesignStudioErp.Dto.csproj" />
   </ItemGroup>
 </Project>

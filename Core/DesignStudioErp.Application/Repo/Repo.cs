@@ -7,32 +7,51 @@ namespace DesignStudioErp.Application.Repo;
 /// <summary>
 /// Generic repository
 /// </summary>
-/// <typeparam name="T"></typeparam>
-public class Repo<T> : IRepo<T> where T : BaseModel
+/// <typeparam name="TEntity"></typeparam>
+public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
 {
-    private readonly IApplicationDbContext? _context;
-    private readonly DbSet<T> _entities;
+    private readonly IApplicationContext _context;
+    private readonly DbSet<TEntity> _dbSet;
 
     /// <summary>
     /// ctor
     /// </summary>
     /// <param name="context"></param>
     /// <exception cref="ArgumentNullException"></exception>
-    public Repo(IApplicationDbContext context)
+    public Repo(IApplicationContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
-        _entities = _context.Set<T>() ?? throw new NullReferenceException(nameof(_entities));
+        _dbSet = _context.Set<TEntity>() ?? throw new NullReferenceException(nameof(_dbSet));
     }
 
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
     /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
-    public async Task<IEnumerable<T>> GetAllAsync()
+    public async Task SaveChangesAsync()
     {
-        var entities = await _entities.ToListAsync();
-        return entities;
+        try
+        {
+            var result = await _context.SaveChangesAsync(new CancellationToken());
+            if (result != 0)
+            {
+                // TODO error
+            }
+        }
+        catch (DbUpdateException updateException)
+        {
+            // TODO add error check
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
+    /// <returns></returns>
+    public async Task<IEnumerable<TEntity>> GetAllAsync()
+    {
+        return await _dbSet.AsNoTracking().ToListAsync();
     }
 
     /// <summary>
@@ -40,10 +59,10 @@ public class Repo<T> : IRepo<T> where T : BaseModel
     /// </summary>
     /// <param name="predicate"></param>
     /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
-    public Task<IEnumerable<T>> GetAllByConditionAsync(Func<T, bool> predicate)
+    public async Task<IEnumerable<TEntity>> GetAllByConditionAsync(Func<TEntity, bool> predicate)
     {
-        throw new NotImplementedException();
+        var query = _dbSet.Where(predicate).AsQueryable();
+        return await query.AsNoTracking().ToListAsync();
     }
 
     /// <summary>
@@ -52,9 +71,10 @@ public class Repo<T> : IRepo<T> where T : BaseModel
     /// <param name="id"></param>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public async Task<T> GetByIdAsync(Guid id)
+    public async Task<TEntity> GetByIdAsync(Guid id)
     {
-        var entity = await _entities.FirstOrDefaultAsync(x => x.Id == id);
+        var entity = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
+        // TODO add check error for not found
         return entity;
     }
 
@@ -64,20 +84,11 @@ public class Repo<T> : IRepo<T> where T : BaseModel
     /// <param name="entity"></param>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public Task CreateAsync(T entity)
+    public async Task CreateAsync(TEntity entity)
     {
-        throw new NotImplementedException();
-    }
-
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
-    public Task DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
+        entity.CreationDate = DateTime.Now; // TODO temporary, do datetime service
+        _dbSet.Add(entity);
+        await SaveChangesAsync();
     }
 
     /// <summary>
@@ -86,8 +97,22 @@ public class Repo<T> : IRepo<T> where T : BaseModel
     /// <param name="entity"></param>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
-    public Task UpdateAsync(T entity)
+    public async Task UpdateAsync(TEntity entity)
     {
-        throw new NotImplementedException();
+        entity.EditDate = DateTime.Now; // TODO temporary, do datetime service
+        _context.Entry(entity).State = EntityState.Modified;
+        await SaveChangesAsync();
+    }
+
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public async Task DeleteAsync(TEntity entity)
+    {
+        _dbSet.Remove(entity);
+        await SaveChangesAsync();
     }
 }

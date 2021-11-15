@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\DesignStudioErp.Application\DesignStudioErp.Application.csproj" />
+    <ProjectReference Include="..\..\Core\DesignStudioErp.Domain\DesignStudioErp.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

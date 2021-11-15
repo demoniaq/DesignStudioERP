@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DesignStudioErp.WebApi.Dtos.MeasDto;
+namespace DesignStudioErp.Dto.MeasDto;
 
 public abstract class MeasUnitBaseDto
 {

@@ -30,7 +30,7 @@ public static class DependencyInjectionExtension
             options.UseSqlServer(connectionString);
         });
 
-        services.AddScoped<IApplicationDbContext>(provider =>
+        services.AddScoped<IApplicationContext>(provider =>
         {
             var context = provider.GetService<ApplicationDbContext>() ?? throw new NullReferenceException(nameof(ApplicationDbContext));
             return context;
