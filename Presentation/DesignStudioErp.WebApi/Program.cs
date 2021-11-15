@@ -10,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 #region Automapper
 builder.Services.AddAutoMapper(config =>
 {
-    config.AddProfile(new AssemblyMappingProfile(typeof(MeasUnitBaseDto).Assembly)); // Находим сборку по классу MeasUnitBaseDto
-    //config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly())); // Текущая сборка
+    config.AddProfile(new AssemblyMappingProfile(typeof(MeasUnitBaseDto).Assembly));
+    //config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
     //config.AddProfile(new AssemblyMappingProfile(typeof(IApplicationContext).Assembly));
 });
 #endregion Automapper
