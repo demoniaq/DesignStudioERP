@@ -17,8 +17,6 @@ public class MeasUnitController : BaseController
     /// <summary>
     /// ctor
     /// </summary>
-    /// <param name="repo"></param>
-    /// <exception cref="ArgumentNullException"></exception>
     public MeasUnitController(IRepo<MeasUnit> repo)
     {
         _repo = repo ?? throw new ArgumentNullException(nameof(repo));
@@ -27,7 +25,6 @@ public class MeasUnitController : BaseController
     /// <summary>
     /// Get all meas units
     /// </summary>
-    /// <returns></returns>
     [HttpGet]
     [SwaggerResponse((int)ApiStatusCode.OK, Type = typeof(IEnumerable<MeasUnitReadDto>))]
     public async Task<ActionResult<IEnumerable<MeasUnitReadDto>>> GetAllAsync()
@@ -42,8 +39,6 @@ public class MeasUnitController : BaseController
     /// <summary>
     /// Get meas unit by id
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
     [HttpGet("{id}")]
     [SwaggerResponse((int)ApiStatusCode.OK, Type = typeof(MeasUnitReadDto))]
     public async Task<ActionResult<MeasUnitReadDto>> GetMeasUnitByIdAsync([FromRoute] Guid id)
