@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using AutoMapper;
 using DesignStudioErp.Application.AutoMapper;
 using DesignStudioErp.Domain;
@@ -9,6 +10,7 @@ public class MeasUnitReadDto : MeasUnitBaseDto, IMapWith<MeasUnit>
     /// <summary>
     /// Id
     /// </summary>
+    [JsonPropertyOrder(-1)]
     public Guid Id { get; set; }
 
     public void Mapping(Profile profile)
