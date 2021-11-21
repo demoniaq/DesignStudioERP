@@ -4,7 +4,7 @@ using System.Reflection;
 namespace DesignStudioErp.Application.AutoMapper;
 
 /// <summary>
-/// Class for searching Aupomapper profiles
+/// Class for searching Automapper profiles
 /// </summary>
 public class AssemblyMappingProfile : Profile
 {
