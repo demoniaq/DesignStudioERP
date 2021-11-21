@@ -10,14 +10,14 @@ namespace DesignStudioErp.WebApi.Controllers;
 /// <summary>
 /// Meas
 /// </summary>
-public class MeasUnitController : BaseController
+public class MeasUnitsController : BaseController
 {
     private readonly IRepo<MeasUnit> _repo;
 
     /// <summary>
     /// ctor
     /// </summary>
-    public MeasUnitController(IRepo<MeasUnit> repo)
+    public MeasUnitsController(IRepo<MeasUnit> repo)
     {
         _repo = repo ?? throw new ArgumentNullException(nameof(repo));
     }
