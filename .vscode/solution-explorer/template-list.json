@@ -6,21 +6,33 @@
             "parameters": "./template-parameters.js"
         },
         {
-            "name": "Interface",
+            "name": "Class NET6",
+            "extension": "cs",
+            "file": "./class6.cs-template",
+            "parameters": "./template-parameters.js"
+        },
+        {
+            "name": "Interface NET5",
             "extension": "cs",
             "file": "./interface5.cs-template",
             "parameters": "./template-parameters.js"
         },
         {
-            "name": "Enum",
+            "name": "Interface NET6",
+            "extension": "cs",
+            "file": "./interface6.cs-template",
+            "parameters": "./template-parameters.js"
+        },
+        {
+            "name": "Enum NET5",
             "extension": "cs",
             "file": "./enum5.cs-template",
             "parameters": "./template-parameters.js"
         },
         {
-            "name": "Class NET6",
+            "name": "Enum NET6",
             "extension": "cs",
-            "file": "./class6.cs-template",
+            "file": "./enum6.cs-template",
             "parameters": "./template-parameters.js"
         }
     ]
