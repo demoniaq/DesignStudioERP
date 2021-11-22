@@ -1,45 +1,26 @@
 {
-    "templates": [
-        {
-            "name": "Class",
+    "templates": [{
+            "name": "Class NET5",
             "extension": "cs",
-            "file": "./class.cs-template",
+            "file": "./class5.cs-template",
             "parameters": "./template-parameters.js"
         },
         {
             "name": "Interface",
             "extension": "cs",
-            "file": "./interface.cs-template",
+            "file": "./interface5.cs-template",
             "parameters": "./template-parameters.js"
         },
         {
             "name": "Enum",
             "extension": "cs",
-            "file": "./enum.cs-template",
+            "file": "./enum5.cs-template",
             "parameters": "./template-parameters.js"
         },
         {
-            "name": "Class",
-            "extension": "ts",
-            "file": "./class.ts-template",
-            "parameters": "./template-parameters.js"
-        },
-        {
-            "name": "Interface",
-            "extension": "ts",
-            "file": "./interface.ts-template",
-            "parameters": "./template-parameters.js"
-        },
-        {
-            "name": "Default",
-            "extension": "ts",
-            "file": "./default.ts-template",
-            "parameters": "./template-parameters.js"
-        },
-        {
-            "name": "Class",
-            "extension": "vb",
-            "file": "./class.vb-template",
+            "name": "Class NET6",
+            "extension": "cs",
+            "file": "./class6.cs-template",
             "parameters": "./template-parameters.js"
         }
     ]

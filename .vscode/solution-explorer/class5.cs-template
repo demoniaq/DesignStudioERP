@@ -2,7 +2,8 @@ using System;
 
 namespace {{namespace}}
 {
-    public class {{name}}
+    internal class {{name}}
     {
+
     }
 }
