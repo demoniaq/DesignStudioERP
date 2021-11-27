@@ -1,7 +1,7 @@
-using System.Text.Json.Serialization;
 using AutoMapper;
-using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Domain;
+using DesignStudioErp.Dto.Interfaces;
+using System.Text.Json.Serialization;
 
 namespace DesignStudioErp.Dto.MaterialDto;
 

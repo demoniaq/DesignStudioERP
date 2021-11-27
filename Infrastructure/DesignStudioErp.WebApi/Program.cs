@@ -1,7 +1,6 @@
-using DesignStudioErp.Application.AutoMapper;
 using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Application.Services;
-using DesignStudioErp.Domain;
+using DesignStudioErp.Dto;
 using DesignStudioErp.Dto.MeasDto;
 using DesignStudioErp.Persistence.Context;
 using DesignStudioErp.Persistence.Extensions;

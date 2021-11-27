@@ -6,4 +6,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\DesignStudioErp.Application\DesignStudioErp.Application.csproj" />
+    <ProjectReference Include="..\Presentation\DesignStudioErp.Dto\DesignStudioErp.Dto.csproj" />
+  </ItemGroup>
+
 </Project>

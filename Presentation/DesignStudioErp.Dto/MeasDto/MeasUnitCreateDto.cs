@@ -1,7 +1,6 @@
 using AutoMapper;
-using DesignStudioErp.Application.AutoMapper;
-using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Domain;
+using DesignStudioErp.Dto.Interfaces;
 
 namespace DesignStudioErp.Dto.MeasDto;
 

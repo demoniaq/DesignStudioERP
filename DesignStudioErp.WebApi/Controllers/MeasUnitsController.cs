@@ -1,6 +1,5 @@
 using DesignStudioErp.Application.HandBooks;
 using DesignStudioErp.Application.Interfaces;
-using DesignStudioErp.Domain;
 using DesignStudioErp.Dto.MeasDto;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -12,12 +11,12 @@ namespace DesignStudioErp.WebApi.Controllers;
 /// </summary>
 public class MeasUnitsController : BaseController
 {
-    private readonly IService<MeasUnit> _measUnitService;
+    private readonly IMeasUnitService _measUnitService;
 
     /// <summary>
     /// ctor
     /// </summary>
-    public MeasUnitsController(IService<MeasUnit> measUnitService)
+    public MeasUnitsController(IMeasUnitService measUnitService)
     {
         _measUnitService = measUnitService ?? throw new ArgumentNullException(nameof(measUnitService));
     }
