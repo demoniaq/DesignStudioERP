@@ -2,9 +2,9 @@ using DesignStudioErp.Domain;
 
 namespace DesignStudioErp.Application.Interfaces;
 
-public interface IService<TModel>
+public interface IService<TEntity>
 {
-    Task<IEnumerable<TModel>> GetAllAsync();
+    Task<IEnumerable<TEntity>> GetAllAsync();
 
 }
 
