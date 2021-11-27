@@ -3,7 +3,7 @@ using DesignStudioErp.Domain;
 
 namespace DesignStudioErp.Application.Services;
 
-public abstract class BaseService<TEntity> /* : IService<TEntity> */ where TEntity : BaseModel
+public abstract class BaseService<TEntity> where TEntity : BaseModel
 {
     protected readonly IRepository<TEntity> _repository;
 

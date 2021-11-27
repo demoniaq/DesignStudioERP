@@ -2,7 +2,7 @@
 using DesignStudioErp.Dto.Interfaces;
 using System.Reflection;
 
-namespace DesignStudioErp.Dto;
+namespace DesignStudioErp.Dto.AutoMapper;
 
 /// <summary>
 /// Class for searching Automapper profiles

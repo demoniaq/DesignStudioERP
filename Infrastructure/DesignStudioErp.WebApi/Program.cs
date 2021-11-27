@@ -1,6 +1,5 @@
 using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Application.Services;
-using DesignStudioErp.Dto;
 using DesignStudioErp.Dto.MeasDto;
 using DesignStudioErp.Persistence.Context;
 using DesignStudioErp.Persistence.Extensions;
@@ -11,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 #region Automapper
 builder.Services.AddAutoMapper(config =>
 {
-    config.AddProfile(new AssemblyMappingProfile(typeof(MeasUnitBaseDto).Assembly)); // Find assembly by class MeasUnitBaseDto
+    config.AddProfile(new DesignStudioErp.Dto.AutoMapper.AssemblyMappingProfile(typeof(MeasUnitBaseDto).Assembly)); // Find assembly by class MeasUnitBaseDto
     //config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly())); // Current assembly
     //config.AddProfile(new AssemblyMappingProfile(typeof(IApplicationContext).Assembly));
 });
@@ -20,7 +19,6 @@ builder.Services.AddAutoMapper(config =>
 #region Add services to the container.
 builder.Services.AddPersistance(builder.Configuration, "ConnectionStrings:MsSqlConnection"); // TODO remove constant
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); // Add generic Repository
-//builder.Services.AddScoped<IBaseService<MeasUnit>, MeasUnitService>();
 builder.Services.AddScoped<IMeasUnitService, MeasUnitService>();
 #endregion Add services to the container.
 
