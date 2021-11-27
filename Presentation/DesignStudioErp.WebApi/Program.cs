@@ -21,7 +21,6 @@ builder.Services.AddAutoMapper(config =>
 #region Add services to the container.
 builder.Services.AddPersistance(builder.Configuration, "ConnectionStrings:MsSqlConnection"); // TODO remove constant
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); // Add generic Repository
-//builder.Services.AddScoped(typeof(IService<>), typeof(BaseService<>)); // Add generic Service
 builder.Services.AddScoped<IService<MeasUnit>, MeasUnitService>();
 #endregion Add services to the container.
 

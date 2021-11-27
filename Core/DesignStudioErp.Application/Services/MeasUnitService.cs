@@ -5,9 +5,12 @@ namespace DesignStudioErp.Application.Services;
 
 public class MeasUnitService : BaseService<MeasUnit>, IService<MeasUnit>
 {
+    /// <summary>
+    /// ctor
+    /// </summary>
     public MeasUnitService(IRepository<MeasUnit> repository) : base(repository) { }
 
-    public async Task<IEnumerable<MeasUnit>> GetAllAsync()
+    public override async Task<IEnumerable<MeasUnit>> GetAllAsync()
     {
         return await _repository.GetAllAsync();
     }
