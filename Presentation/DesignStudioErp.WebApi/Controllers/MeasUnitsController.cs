@@ -12,16 +12,13 @@ namespace DesignStudioErp.WebApi.Controllers;
 /// </summary>
 public class MeasUnitsController : BaseController
 {
-    private readonly IRepository<MeasUnit> _repository;
     private readonly IService<MeasUnit> _measUnitService;
 
     /// <summary>
     /// ctor
     /// </summary>
-    public MeasUnitsController(IRepository<MeasUnit> repository,
-                               IService<MeasUnit> measUnitService)
+    public MeasUnitsController(IService<MeasUnit> measUnitService)
     {
-        _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         _measUnitService = measUnitService ?? throw new ArgumentNullException(nameof(measUnitService));
     }
 
@@ -47,12 +44,11 @@ public class MeasUnitsController : BaseController
     [SwaggerResponse((int)ApiStatusCode.OK, Type = typeof(MeasUnitReadDto))]
     public async Task<ActionResult<MeasUnitReadDto>> GetMeasUnitByIdAsync([FromRoute] Guid id)
     {
-        var measUnit = await _repository.GetByIdAsync(id);
+        var measUnit = await _measUnitService.GetByIdAsync(id);
 
         var measUnitsDto = Mapper.Map<MeasUnitReadDto>(measUnit);
 
         return Ok(measUnitsDto);
     }
-
 
 }

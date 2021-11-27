@@ -1,10 +1,9 @@
-using System;
 using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Domain;
 
 namespace DesignStudioErp.Application.Services;
 
-public abstract class BaseService<TEntity> : IService<TEntity> where TEntity : BaseModel
+public abstract class BaseService<TEntity> /* : IService<TEntity> */ where TEntity : BaseModel
 {
     protected readonly IRepository<TEntity> _repository;
 
@@ -15,7 +14,5 @@ public abstract class BaseService<TEntity> : IService<TEntity> where TEntity : B
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
     }
-
-    public abstract Task<IEnumerable<TEntity>> GetAllAsync();
 }
 
