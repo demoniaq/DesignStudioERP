@@ -1,13 +1,14 @@
 ﻿using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Domain;
+using DesignStudioErp.Persistence.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace DesignStudioErp.Application.Repo;
+namespace DesignStudioErp.Persistence.Repository;
 
 /// <summary>
 /// Generic repository
 /// </summary>
-public class Repository<TEntity> : IRepo<TEntity> where TEntity : BaseModel
+public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseModel
 {
     private readonly IApplicationContext _context;
     private readonly DbSet<TEntity> _dbSet;

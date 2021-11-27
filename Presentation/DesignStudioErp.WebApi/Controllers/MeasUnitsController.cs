@@ -12,14 +12,17 @@ namespace DesignStudioErp.WebApi.Controllers;
 /// </summary>
 public class MeasUnitsController : BaseController
 {
-    private readonly IRepo<MeasUnit> _repo;
+    private readonly IRepository<MeasUnit> _repository;
+    private readonly IService<MeasUnit> _measUnitService;
 
     /// <summary>
     /// ctor
     /// </summary>
-    public MeasUnitsController(IRepo<MeasUnit> repo)
+    public MeasUnitsController(IRepository<MeasUnit> repository,
+                               IService<MeasUnit> measUnitService)
     {
-        _repo = repo ?? throw new ArgumentNullException(nameof(repo));
+        _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        _measUnitService = measUnitService ?? throw new ArgumentNullException(nameof(measUnitService));
     }
 
     /// <summary>
@@ -29,7 +32,8 @@ public class MeasUnitsController : BaseController
     [SwaggerResponse((int)ApiStatusCode.OK, Type = typeof(IEnumerable<MeasUnitReadDto>))]
     public async Task<ActionResult<IEnumerable<MeasUnitReadDto>>> GetAllAsync()
     {
-        var measUnits = await _repo.GetAllAsync();
+        //var measUnits = await _repository.GetAllAsync();
+        var measUnits = await _measUnitService.GetAllAsync();
 
         var measUnitsDtos = Mapper.Map<IEnumerable<MeasUnitReadDto>>(measUnits);
 
@@ -43,7 +47,7 @@ public class MeasUnitsController : BaseController
     [SwaggerResponse((int)ApiStatusCode.OK, Type = typeof(MeasUnitReadDto))]
     public async Task<ActionResult<MeasUnitReadDto>> GetMeasUnitByIdAsync([FromRoute] Guid id)
     {
-        var measUnit = await _repo.GetByIdAsync(id);
+        var measUnit = await _repository.GetByIdAsync(id);
 
         var measUnitsDto = Mapper.Map<MeasUnitReadDto>(measUnit);
 

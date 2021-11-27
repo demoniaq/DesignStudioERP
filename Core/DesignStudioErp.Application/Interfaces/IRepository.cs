@@ -5,7 +5,7 @@ namespace DesignStudioErp.Application.Interfaces;
 /// <summary>
 /// Generic interface for repositories
 /// </summary>
-public interface IRepo<TEntity> where TEntity : BaseModel
+public interface IRepository<TEntity> where TEntity : BaseModel
 {
     /// <summary>
     /// Save changes
