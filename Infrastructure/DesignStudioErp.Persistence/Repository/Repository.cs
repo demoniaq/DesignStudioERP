@@ -7,7 +7,7 @@ namespace DesignStudioErp.Application.Repo;
 /// <summary>
 /// Generic repository
 /// </summary>
-public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
+public class Repository<TEntity> : IRepo<TEntity> where TEntity : BaseModel
 {
     private readonly IApplicationContext _context;
     private readonly DbSet<TEntity> _dbSet;
@@ -15,7 +15,7 @@ public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
     /// <summary>
     /// ctor
     /// </summary>
-    public Repo(IApplicationContext context)
+    public Repository(IApplicationContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _dbSet = _context.Set<TEntity>() ?? throw new NullReferenceException(nameof(_dbSet));
