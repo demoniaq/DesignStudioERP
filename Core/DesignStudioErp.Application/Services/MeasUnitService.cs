@@ -4,7 +4,7 @@ using DesignStudioErp.Domain;
 
 namespace DesignStudioErp.Application.Services;
 
-internal class MeasUnitService : BaseService<MeasUnit>, IService<MeasUnit>
+public class MeasUnitService : BaseService<MeasUnit>, IService<MeasUnit>
 {
     public MeasUnitService(IRepository<MeasUnit> repository) : base(repository) { }
 
