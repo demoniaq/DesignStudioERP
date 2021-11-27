@@ -3,30 +3,41 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4E9CBC69-1D7D-43CA-BBC4-502882F8CB35}"
 EndProject
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.Domain", "Core\DesignStudioErp.Domain\DesignStudioErp.Domain.csproj", "{AE8AD076-9A25-4785-B14D-33BF550CB5FA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.Application", "Core\DesignStudioErp.Application\DesignStudioErp.Application.csproj", "{F78BCF3C-DF2A-4089-9716-7FA0DC71721B}"
 EndProject
+
+
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{54683544-4026-4E94-8521-88B46DB4345F}"
 EndProject
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.Integrations", "Infrastructure\DesignStudioErp.Integrations\DesignStudioErp.Integrations.csproj", "{6E7E1A5F-3FBE-48B4-A427-2CBF23F3ED64}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.Persistence", "Infrastructure\DesignStudioErp.Persistence\DesignStudioErp.Persistence.csproj", "{0A6D7FD0-E0B3-436D-A85C-9981A8CEC36C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioERP.Start", "Infrastructure\DesignStudioErp.Start\DesignStudioERP.Start.csproj", "{81400464-5072-43A6-B1D8-2E1F3E0360A0}"
+EndProject
+
+
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{7E6B0F12-120C-4BD7-83CD-C21C3AD82E10}"
 EndProject
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.BlazorWasm", "Presentation\DesignStudioErp.BlazorWasm\DesignStudioErp.BlazorWasm.csproj", "{57A5A83D-E72F-4D5F-B05A-6AAC200365DE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.Dto", "Presentation\DesignStudioErp.Dto\DesignStudioErp.Dto.csproj", "{CBCBA944-9AB6-4436-A504-774226544C64}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4872A1AD-B644-44F4-9BC1-E48AE045DCD4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioERP.Start", "Infrastructure\DesignStudioErp.WebApi\DesignStudioERP.Start.csproj", "{81400464-5072-43A6-B1D8-2E1F3E0360A0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignStudioErp.WebApi", "DesignStudioErp.WebApi\DesignStudioErp.WebApi.csproj", "{147410E7-96E0-403E-8DA2-79D7E1785233}"
 EndProject
+
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4872A1AD-B644-44F4-9BC1-E48AE045DCD4}"
+EndProject
+
+
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
