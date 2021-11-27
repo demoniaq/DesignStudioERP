@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 
-namespace DesignStudioErp.WebApi.Controllers;
+namespace DesignStudioErp.WebApi.Controllers.Base;
 
 [ApiController]
 [Route("api/[controller]")]
