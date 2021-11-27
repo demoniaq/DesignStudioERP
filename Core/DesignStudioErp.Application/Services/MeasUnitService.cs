@@ -1,4 +1,3 @@
-using System;
 using DesignStudioErp.Application.Interfaces;
 using DesignStudioErp.Domain;
 
@@ -10,9 +9,7 @@ public class MeasUnitService : BaseService<MeasUnit>, IService<MeasUnit>
 
     public async Task<IEnumerable<MeasUnit>> GetAllAsync()
     {
-        var rez = await _repository.GetAllAsync();
-
-        return rez;
+        return await _repository.GetAllAsync();
     }
 }
 
