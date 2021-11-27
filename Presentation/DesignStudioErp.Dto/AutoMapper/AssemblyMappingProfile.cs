@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using DesignStudioErp.Dto.Interfaces;
 using System.Reflection;
 
 namespace DesignStudioErp.Dto.AutoMapper;

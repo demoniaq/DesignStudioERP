@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace DesignStudioErp.Dto.Interfaces;
+namespace DesignStudioErp.Dto.AutoMapper;
 
 public interface IMapWith<T>
 {
