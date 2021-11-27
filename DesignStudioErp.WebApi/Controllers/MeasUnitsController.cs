@@ -12,12 +12,12 @@ namespace DesignStudioErp.WebApi.Controllers;
 /// </summary>
 public class MeasUnitsController : BaseController
 {
-    private readonly IMeasUnitService _measUnitService;
+    private readonly IService<MeasUnit> _measUnitService;
 
     /// <summary>
     /// ctor
     /// </summary>
-    public MeasUnitsController(IMeasUnitService measUnitService)
+    public MeasUnitsController(IService<MeasUnit> measUnitService)
     {
         _measUnitService = measUnitService ?? throw new ArgumentNullException(nameof(measUnitService));
     }

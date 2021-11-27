@@ -2,7 +2,7 @@ using DesignStudioErp.Domain;
 
 namespace DesignStudioErp.Application.Interfaces;
 
-public interface IService<TEntity> where TEntity : BaseModel
+public interface IBaseService<TEntity> where TEntity : BaseModel
 {
     /// <summary>
     /// Get all entities

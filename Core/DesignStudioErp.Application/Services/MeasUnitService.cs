@@ -6,7 +6,7 @@ namespace DesignStudioErp.Application.Services;
 /// <summary>
 /// <inheritdoc/>
 /// </summary>
-public class MeasUnitService : BaseService<MeasUnit>, IService<MeasUnit>
+public class MeasUnitService : BaseService<MeasUnit>, IMeasUnitService
 {
     /// <summary>
     /// ctor
