@@ -31,9 +31,9 @@ public class MeasUnitsController : BaseController
         //var measUnits = await _repository.GetAllAsync();
         var measUnits = await _measUnitService.GetAllAsync();
 
-        var measUnitsDtos = Mapper.Map<IEnumerable<MeasUnitReadDto>>(measUnits);
+        var measUnitsDto = Mapper.Map<IEnumerable<MeasUnitReadDto>>(measUnits);
 
-        return Ok(measUnitsDtos);
+        return Ok(measUnitsDto);
     }
 
     /// <summary>
@@ -45,9 +45,9 @@ public class MeasUnitsController : BaseController
     {
         var measUnit = await _measUnitService.GetByIdAsync(id);
 
-        var measUnitsDto = Mapper.Map<MeasUnitReadDto>(measUnit);
+        var measUnitDto = Mapper.Map<MeasUnitReadDto>(measUnit);
 
-        return Ok(measUnitsDto);
+        return Ok(measUnitDto);
     }
 
 }
