@@ -1,6 +1,5 @@
-﻿using DesignStudioErp.Application.Interfaces;
+﻿using DesignStudioErp.Application.Interfaces.Context;
 using DesignStudioErp.Domain;
-using DesignStudioErp.Persistence.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace DesignStudioErp.Persistence.Repository;

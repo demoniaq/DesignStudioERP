@@ -1,6 +1,6 @@
 ﻿using DesignStudioErp.Domain;
 
-namespace DesignStudioErp.Application.Interfaces;
+namespace DesignStudioErp.Application.Interfaces.Context;
 
 /// <summary>
 /// Generic interface for repositories
