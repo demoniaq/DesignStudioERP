@@ -1,7 +1,7 @@
 using DesignStudioErp.Application.HandBooks;
-using DesignStudioErp.Application.Interfaces;
-using DesignStudioErp.Domain;
+using DesignStudioErp.Application.Interfaces.Services;
 using DesignStudioErp.Dto.MeasDto;
+using DesignStudioErp.WebApi.Controllers.Base;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -10,50 +10,45 @@ namespace DesignStudioErp.WebApi.Controllers;
 /// <summary>
 /// Meas
 /// </summary>
-public class MeasUnitController : BaseController
+public class MeasUnitsController : BaseController
 {
-    private readonly IRepo<MeasUnit> _repo;
+    private readonly IMeasUnitService _measUnitService;
 
     /// <summary>
     /// ctor
     /// </summary>
-    /// <param name="repo"></param>
-    /// <exception cref="ArgumentNullException"></exception>
-    public MeasUnitController(IRepo<MeasUnit> repo)
+    public MeasUnitsController(IMeasUnitService measUnitService)
     {
-        _repo = repo ?? throw new ArgumentNullException(nameof(repo));
+        _measUnitService = measUnitService ?? throw new ArgumentNullException(nameof(measUnitService));
     }
 
     /// <summary>
     /// Get all meas units
     /// </summary>
-    /// <returns></returns>
     [HttpGet]
     [SwaggerResponse((int)ApiStatusCode.OK, Type = typeof(IEnumerable<MeasUnitReadDto>))]
     public async Task<ActionResult<IEnumerable<MeasUnitReadDto>>> GetAllAsync()
     {
-        var measUnits = await _repo.GetAllAsync();
+        //var measUnits = await _repository.GetAllAsync();
+        var measUnits = await _measUnitService.GetAllAsync();
 
-        var measUnitsDtos = Mapper.Map<IEnumerable<MeasUnitReadDto>>(measUnits);
+        var measUnitsDto = Mapper.Map<IEnumerable<MeasUnitReadDto>>(measUnits);
 
-        return Ok(measUnitsDtos);
+        return Ok(measUnitsDto);
     }
 
     /// <summary>
     /// Get meas unit by id
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
     [HttpGet("{id}")]
     [SwaggerResponse((int)ApiStatusCode.OK, Type = typeof(MeasUnitReadDto))]
     public async Task<ActionResult<MeasUnitReadDto>> GetMeasUnitByIdAsync([FromRoute] Guid id)
     {
-        var measUnit = await _repo.GetByIdAsync(id);
+        var measUnit = await _measUnitService.GetByIdAsync(id);
 
-        var measUnitsDto = Mapper.Map<MeasUnitReadDto>(measUnit);
+        var measUnitDto = Mapper.Map<MeasUnitReadDto>(measUnit);
 
-        return Ok(measUnitsDto);
+        return Ok(measUnitDto);
     }
-
 
 }

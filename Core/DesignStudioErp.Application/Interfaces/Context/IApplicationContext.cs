@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace DesignStudioErp.Application.Interfaces;
+namespace DesignStudioErp.Application.Interfaces.Context;
 
 public interface IApplicationContext
 {

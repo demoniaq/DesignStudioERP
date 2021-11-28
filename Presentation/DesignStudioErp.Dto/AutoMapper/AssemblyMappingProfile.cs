@@ -1,23 +1,21 @@
 ﻿using AutoMapper;
 using System.Reflection;
 
-namespace DesignStudioErp.Application.AutoMapper;
+namespace DesignStudioErp.Dto.AutoMapper;
 
 /// <summary>
-/// Class for searching Aupomapper profiles
+/// Class for searching Automapper profiles
 /// </summary>
 public class AssemblyMappingProfile : Profile
 {
     /// <summary>
     /// ctor
     /// </summary>
-    /// <param name="assembly"></param>
     public AssemblyMappingProfile(Assembly assembly) => ApplyMappingsFromAssembly(assembly);
 
     /// <summary>
     /// Search all methods "Mapping" for classes with interface IMapWith<>
     /// </summary>
-    /// <param name="assembly"></param>
     private void ApplyMappingsFromAssembly(Assembly assembly)
     {
         var types = assembly.GetExportedTypes()

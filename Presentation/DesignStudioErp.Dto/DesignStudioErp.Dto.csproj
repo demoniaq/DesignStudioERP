@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\DesignStudioErp.Application\DesignStudioErp.Application.csproj" />
     <ProjectReference Include="..\..\Core\DesignStudioErp.Domain\DesignStudioErp.Domain.csproj" />
   </ItemGroup>
 

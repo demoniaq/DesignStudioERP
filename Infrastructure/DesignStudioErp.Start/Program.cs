@@ -1,24 +1,26 @@
-using DesignStudioErp.Application.AutoMapper;
-using DesignStudioErp.Application.Interfaces;
-using DesignStudioErp.Application.Repo;
+using DesignStudioErp.Application.Interfaces.Context;
+using DesignStudioErp.Application.Interfaces.Services;
+using DesignStudioErp.Application.Services;
 using DesignStudioErp.Dto.MeasDto;
 using DesignStudioErp.Persistence.Context;
 using DesignStudioErp.Persistence.Extensions;
+using DesignStudioErp.Persistence.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 #region Automapper
 builder.Services.AddAutoMapper(config =>
 {
-    config.AddProfile(new AssemblyMappingProfile(typeof(MeasUnitBaseDto).Assembly));
-    //config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+    config.AddProfile(new DesignStudioErp.Dto.AutoMapper.AssemblyMappingProfile(typeof(MeasUnitBaseDto).Assembly)); // Find assembly by class MeasUnitBaseDto
+    //config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly())); // Current assembly
     //config.AddProfile(new AssemblyMappingProfile(typeof(IApplicationContext).Assembly));
 });
 #endregion Automapper
 
 #region Add services to the container.
 builder.Services.AddPersistance(builder.Configuration, "ConnectionStrings:MsSqlConnection"); // TODO remove constant
-builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>)); // Add generic Repo
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>)); // Add generic Repository
+builder.Services.AddScoped<IMeasUnitService, MeasUnitService>();
 #endregion Add services to the container.
 
 #region CORS
@@ -50,7 +52,9 @@ using (var scope = app.Services.CreateScope())
         var context = serviceProvider.GetRequiredService<ApplicationDbContext>();
         DbInitializer.Initialize(context);
     }
+#pragma warning disable CS0168 // ѕеременна€ объ€влена, но не используетс€
     catch (Exception ex)
+#pragma warning restore CS0168 // ѕеременна€ объ€влена, но не используетс€
     {
         // TODO handle exception
     }

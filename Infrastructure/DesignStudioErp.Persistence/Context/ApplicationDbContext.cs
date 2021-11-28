@@ -1,4 +1,4 @@
-﻿using DesignStudioErp.Application.Interfaces;
+﻿using DesignStudioErp.Application.Interfaces.Context;
 using DesignStudioErp.Domain;
 using DesignStudioErp.Persistence.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
@@ -13,13 +13,11 @@ public class ApplicationDbContext : DbContext, IApplicationContext
     /// <summary>
     /// ctor
     /// </summary>
-    /// <param name="options"></param>
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     /// <summary>
     /// Apply configurations
     /// </summary>
-    /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new MaterialConfiguration());

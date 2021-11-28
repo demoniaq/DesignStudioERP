@@ -1,6 +1,6 @@
 using AutoMapper;
-using DesignStudioErp.Application.AutoMapper;
 using DesignStudioErp.Domain;
+using DesignStudioErp.Dto.AutoMapper;
 
 namespace DesignStudioErp.Dto.MaterialDto;
 

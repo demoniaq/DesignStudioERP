@@ -1,14 +1,13 @@
-﻿using DesignStudioErp.Application.Interfaces;
+﻿using DesignStudioErp.Application.Interfaces.Context;
 using DesignStudioErp.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace DesignStudioErp.Application.Repo;
+namespace DesignStudioErp.Persistence.Repository;
 
 /// <summary>
 /// Generic repository
 /// </summary>
-/// <typeparam name="TEntity"></typeparam>
-public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
+public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseModel
 {
     private readonly IApplicationContext _context;
     private readonly DbSet<TEntity> _dbSet;
@@ -16,9 +15,7 @@ public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
     /// <summary>
     /// ctor
     /// </summary>
-    /// <param name="context"></param>
-    /// <exception cref="ArgumentNullException"></exception>
-    public Repo(IApplicationContext context)
+    public Repository(IApplicationContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _dbSet = _context.Set<TEntity>() ?? throw new NullReferenceException(nameof(_dbSet));
@@ -27,7 +24,6 @@ public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <returns></returns>
     public async Task SaveChangesAsync()
     {
         try
@@ -38,7 +34,11 @@ public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
                 // TODO error
             }
         }
+#pragma warning disable IDE0059 // Ненужное присваивание значения
+#pragma warning disable CS0168 // Переменная объявлена, но не используется
         catch (DbUpdateException updateException)
+#pragma warning restore CS0168 // Переменная объявлена, но не используется
+#pragma warning restore IDE0059 // Ненужное присваивание значения
         {
             // TODO add error check
             throw;
@@ -48,7 +48,6 @@ public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <returns></returns>
     public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         return await _dbSet.AsNoTracking().ToListAsync();
@@ -57,8 +56,6 @@ public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <param name="predicate"></param>
-    /// <returns></returns>
     public async Task<IEnumerable<TEntity>> GetAllByConditionAsync(Func<TEntity, bool> predicate)
     {
         var query = _dbSet.Where(predicate).AsQueryable();
@@ -68,22 +65,18 @@ public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
     public async Task<TEntity> GetByIdAsync(Guid id)
     {
         var entity = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
         // TODO add check error for not found
+#pragma warning disable CS8603 // Возможно, возврат ссылки, допускающей значение NULL.
         return entity;
+#pragma warning restore CS8603 // Возможно, возврат ссылки, допускающей значение NULL.
     }
 
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <param name="entity"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
     public async Task CreateAsync(TEntity entity)
     {
         entity.CreationDate = DateTime.Now; // TODO temporary, do datetime service
@@ -94,9 +87,6 @@ public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <param name="entity"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
     public async Task UpdateAsync(TEntity entity)
     {
         entity.EditDate = DateTime.Now; // TODO temporary, do datetime service
@@ -107,9 +97,6 @@ public class Repo<TEntity> : IRepo<TEntity> where TEntity : BaseModel
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
     public async Task DeleteAsync(TEntity entity)
     {
         _dbSet.Remove(entity);
