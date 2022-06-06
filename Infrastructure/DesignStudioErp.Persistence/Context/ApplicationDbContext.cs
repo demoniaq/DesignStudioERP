@@ -10,9 +10,6 @@ namespace DesignStudioErp.Persistence.Context;
 /// </summary>
 public class ApplicationDbContext : DbContext, IApplicationContext
 {
-    /// <summary>
-    /// ctor
-    /// </summary>
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     /// <summary>
@@ -30,5 +27,4 @@ public class ApplicationDbContext : DbContext, IApplicationContext
     public DbSet<MeasUnit>? MeasUnits { get; set; }
     public DbSet<Material>? Materials { get; set; }
     #endregion DbSets
-
 }

@@ -14,4 +14,3 @@ public interface IBaseService<TEntity> where TEntity : BaseModel
     /// </summary>
     Task<TEntity> GetByIdAsync(Guid id);
 }
-

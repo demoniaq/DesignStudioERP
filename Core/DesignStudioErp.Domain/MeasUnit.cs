@@ -5,10 +5,6 @@
 /// </summary>
 public class MeasUnit : BaseModel
 {
-    /// <summary>
-    /// ctor
-    /// </summary>
-    /// <param name="name"></param>
     public MeasUnit(string name)
     {
         Name = name;
@@ -18,5 +14,4 @@ public class MeasUnit : BaseModel
     /// Name of meas
     /// </summary>
     public string Name { get; set; }
-
 }

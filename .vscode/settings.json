@@ -1,10 +1,11 @@
 {
-    "files.exclude": {
-        ".gitattributes": true,
-        ".gitignore": true,
-        ".vs": true,
-        "**/bin": true,
-        "**/obj": true,
-    },
-    "cSpell.enabled": true
+  "files.exclude": {
+    ".gitattributes": true,
+    ".gitignore": true,
+    ".vs": true,
+    "**/bin": true,
+    "**/obj": true
+  },
+  "cSpell.enabled": true,
+  "cSpell.words": ["Automapper", "inheritdoc", "Swashbuckle"]
 }

@@ -14,9 +14,6 @@ public class MeasUnitsController : BaseController
 {
     private readonly IMeasUnitService _measUnitService;
 
-    /// <summary>
-    /// ctor
-    /// </summary>
     public MeasUnitsController(IMeasUnitService measUnitService)
     {
         _measUnitService = measUnitService ?? throw new ArgumentNullException(nameof(measUnitService));
@@ -50,5 +47,4 @@ public class MeasUnitsController : BaseController
 
         return Ok(measUnitDto);
     }
-
 }

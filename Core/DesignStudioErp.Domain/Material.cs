@@ -5,10 +5,6 @@
 /// </summary>
 public class Material : BaseModel
 {
-    /// <summary>
-    /// Ctor
-    /// </summary>
-    /// <param name="name"></param>
     public Material(string name)
     {
         Name = name;
@@ -21,12 +17,11 @@ public class Material : BaseModel
 
     /// <summary>
     /// FK to meas
-    /// </summary>    
+    /// </summary>
     public Guid MeasUnitId { get; set; }
 
     /// <summary>
     /// Meas unit
     /// </summary>
     public MeasUnit? MeasUnit { get; set; }
-
 }

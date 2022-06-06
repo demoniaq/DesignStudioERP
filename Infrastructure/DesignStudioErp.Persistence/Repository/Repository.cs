@@ -12,18 +12,12 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseMode
     private readonly IApplicationContext _context;
     private readonly DbSet<TEntity> _dbSet;
 
-    /// <summary>
-    /// ctor
-    /// </summary>
     public Repository(IApplicationContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));
         _dbSet = _context.Set<TEntity>() ?? throw new NullReferenceException(nameof(_dbSet));
     }
 
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
     public async Task SaveChangesAsync()
     {
         try
@@ -45,26 +39,17 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseMode
         }
     }
 
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
     public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         return await _dbSet.AsNoTracking().ToListAsync();
     }
 
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
     public async Task<IEnumerable<TEntity>> GetAllByConditionAsync(Func<TEntity, bool> predicate)
     {
         var query = _dbSet.Where(predicate).AsQueryable();
         return await query.AsNoTracking().ToListAsync();
     }
 
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
     public async Task<TEntity> GetByIdAsync(Guid id)
     {
         var entity = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
@@ -74,29 +59,20 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseMode
 #pragma warning restore CS8603 // Возможно, возврат ссылки, допускающей значение NULL.
     }
 
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
     public async Task CreateAsync(TEntity entity)
     {
-        entity.CreationDate = DateTime.Now; // TODO temporary, do datetime service
+        entity.CreationDate = DateTime.Now; // TODO temporary, do DateTime service
         _dbSet.Add(entity);
         await SaveChangesAsync();
     }
 
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
     public async Task UpdateAsync(TEntity entity)
     {
-        entity.EditDate = DateTime.Now; // TODO temporary, do datetime service
+        entity.EditDate = DateTime.Now; // TODO temporary, do DateTime service
         _context.Entry(entity).State = EntityState.Modified;
         await SaveChangesAsync();
     }
 
-    /// <summary>
-    /// <inheritdoc/>
-    /// </summary>
     public async Task DeleteAsync(TEntity entity)
     {
         _dbSet.Remove(entity);

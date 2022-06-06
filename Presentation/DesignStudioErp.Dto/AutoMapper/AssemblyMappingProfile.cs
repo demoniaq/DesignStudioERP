@@ -8,9 +8,6 @@ namespace DesignStudioErp.Dto.AutoMapper;
 /// </summary>
 public class AssemblyMappingProfile : Profile
 {
-    /// <summary>
-    /// ctor
-    /// </summary>
     public AssemblyMappingProfile(Assembly assembly) => ApplyMappingsFromAssembly(assembly);
 
     /// <summary>

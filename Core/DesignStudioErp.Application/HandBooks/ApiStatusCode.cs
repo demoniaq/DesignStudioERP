@@ -42,4 +42,3 @@ public enum ApiStatusCode
     /// </summary>
     InternalServerError = HttpStatusCode.InternalServerError,
 }
-

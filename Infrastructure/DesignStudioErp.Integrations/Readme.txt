@@ -1,1 +1,1 @@
-Some intergrations will adds there
+Some integrations will adds there

@@ -9,5 +9,4 @@ public abstract class MeasUnitBaseDto
     /// </summary>
     [Required]
     public string? Name { get; set; }
-
 }

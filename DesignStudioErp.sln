@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.Integration
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.Persistence", "Infrastructure\DesignStudioErp.Persistence\DesignStudioErp.Persistence.csproj", "{0A6D7FD0-E0B3-436D-A85C-9981A8CEC36C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioERP.Start", "Infrastructure\DesignStudioErp.Start\DesignStudioERP.Start.csproj", "{81400464-5072-43A6-B1D8-2E1F3E0360A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignStudioErp.Start", "Infrastructure\DesignStudioErp.Start\DesignStudioErp.Start.csproj", "{81400464-5072-43A6-B1D8-2E1F3E0360A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{7E6B0F12-120C-4BD7-83CD-C21C3AD82E10}"
 EndProject

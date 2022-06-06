@@ -10,7 +10,6 @@ public interface IApplicationContext
     DbSet<TEntity>? Set<TEntity>() where TEntity : class;
     EntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
-
     #region DbSets
     DbSet<MeasUnit>? MeasUnits { get; set; }
     DbSet<Material>? Materials { get; set; }
