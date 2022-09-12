@@ -7,6 +7,9 @@ namespace DesignStudioErp.Application.Interfaces.Context;
 /// </summary>
 public interface IRepository<TEntity> where TEntity : BaseModel
 {
+    IApplicationContext Context { get; }
+    IQueryable<TEntity> Query { get; }
+
     /// <summary>
     /// Save changes
     /// </summary>

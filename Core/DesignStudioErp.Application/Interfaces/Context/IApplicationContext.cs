@@ -12,7 +12,7 @@ public interface IApplicationContext
     EntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
     #region DbSets
-    DbSet<MeasUnit>? MeasUnits { get; set; }
-    DbSet<Material>? Materials { get; set; }
+    DbSet<MeasUnit> MeasUnits { get; set; }
+    DbSet<Material> Materials { get; set; }
     #endregion DbSets
 }

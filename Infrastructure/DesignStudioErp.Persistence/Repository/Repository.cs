@@ -13,6 +13,9 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseMode
     private readonly IApplicationContext _context;
     private readonly DbSet<TEntity> _dbSet;
 
+    IApplicationContext IRepository<TEntity>.Context => _context;
+    IQueryable<TEntity> IRepository<TEntity>.Query => _dbSet;
+
     public Repository(IApplicationContext context)
     {
         _context = context ?? throw new ArgumentNullException(nameof(context));

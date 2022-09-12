@@ -33,6 +33,9 @@ public class MeasUnitsController : BaseController
         var measUnits = await _measUnitService.GetAllAsync();
         var measUnitsDto = Mapper.Map<IEnumerable<MeasUnitReadDto>>(measUnits);
 
+        var q1 = _measUnitService.GetMeasUnitCount1();
+        var q2 = _measUnitService.GetMeasUnitCount2();
+
         return Ok(measUnitsDto);
     }
 
