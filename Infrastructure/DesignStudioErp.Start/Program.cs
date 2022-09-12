@@ -52,7 +52,7 @@ using (var scope = app.Services.CreateScope())
         var context = serviceProvider.GetRequiredService<ApplicationDbContext>();
         DbInitializer.Initialize(context);
     }
-    catch (Exception ex)
+    catch
     {
         // TODO handle exception
     }
