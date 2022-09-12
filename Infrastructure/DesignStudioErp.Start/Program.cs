@@ -1,7 +1,7 @@
 using DesignStudioErp.Application.Interfaces.Context;
 using DesignStudioErp.Application.Interfaces.Services;
 using DesignStudioErp.Application.Services;
-using DesignStudioErp.Dto.MeasDto;
+using DesignStudioErp.Dto.AutoMapper;
 using DesignStudioErp.Persistence.Context;
 using DesignStudioErp.Persistence.Extensions;
 using DesignStudioErp.Persistence.Repository;
@@ -11,7 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 #region Automapper
 builder.Services.AddAutoMapper(config =>
 {
-    config.AddProfile(new DesignStudioErp.Dto.AutoMapper.AssemblyMappingProfile(typeof(MeasUnitBaseDto).Assembly)); // Find assembly by class MeasUnitBaseDto
+    var assembly = typeof(AssemblyMappingProfile).Assembly;
+    config.AddProfile(new AssemblyMappingProfile(assembly));
     //config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly())); // Current assembly
     //config.AddProfile(new AssemblyMappingProfile(typeof(IApplicationContext).Assembly));
 });
@@ -39,7 +40,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 var app = builder.Build();
 
