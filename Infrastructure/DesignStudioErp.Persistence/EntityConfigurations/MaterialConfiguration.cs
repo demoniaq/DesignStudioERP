@@ -20,7 +20,7 @@ internal class MaterialConfiguration : BaseEntityConfiguration<Material>, IEntit
         #region MeasUnit
         builder.Property(e => e.MeasUnitId)
             .IsRequired()
-            .HasColumnType("uniqueidentifier");
+            .HasColumnType(ConfigurationConstants.UniqueIdentifierColumnType);
 
         builder.HasOne(x => x.MeasUnit)
             .WithMany()

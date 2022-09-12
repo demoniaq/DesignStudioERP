@@ -7,5 +7,10 @@
     "**/obj": true
   },
   "cSpell.enabled": true,
-  "cSpell.words": ["Automapper", "inheritdoc", "Swashbuckle"]
+  "cSpell.words": [
+    "Automapper",
+    "inheritdoc",
+    "Swashbuckle",
+    "uniqueidentifier"
+  ]
 }
