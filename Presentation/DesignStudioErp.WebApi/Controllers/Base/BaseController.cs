@@ -1,7 +1,9 @@
 using AutoMapper;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+
 using System.Security.Claims;
 
 namespace DesignStudioErp.WebApi.Controllers.Base;
@@ -17,11 +19,8 @@ public abstract class BaseController : ControllerBase
         get
         {
             _logger ??= HttpContext.RequestServices.GetService<ILogger<BaseController>>();
-            if (_logger == null)
-            {
-                throw new NullReferenceException(nameof(Logger));
-            }
-            return _logger;
+
+            return _logger ?? throw new NullReferenceException(nameof(Logger));
         }
     }
 
@@ -31,11 +30,8 @@ public abstract class BaseController : ControllerBase
         get
         {
             _mapper ??= HttpContext.RequestServices.GetService<IMapper>();
-            if (_mapper == null)
-            {
-                throw new NullReferenceException(nameof(Mapper));
-            }
-            return _mapper;
+
+            return _mapper ?? throw new NullReferenceException(nameof(Mapper));
         }
     }
 
@@ -43,7 +39,7 @@ public abstract class BaseController : ControllerBase
     {
         get
         {
-            bool isAuthenticated = User.Identity is not null && User.Identity.IsAuthenticated;
+            var isAuthenticated = User.Identity is not null && User.Identity.IsAuthenticated;
             return isAuthenticated
                    ? Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier))
                    : Guid.Empty;

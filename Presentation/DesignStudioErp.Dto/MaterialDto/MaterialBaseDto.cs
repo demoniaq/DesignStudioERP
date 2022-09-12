@@ -5,7 +5,7 @@ namespace DesignStudioErp.Dto.MaterialDto;
 public abstract class MaterialBaseDto
 {
     /// <summary>
-    /// Materail name
+    /// Material name
     /// </summary>
     [Required]
     public string? Name { get; set; }

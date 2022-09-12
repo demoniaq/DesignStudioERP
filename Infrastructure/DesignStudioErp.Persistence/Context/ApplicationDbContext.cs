@@ -1,6 +1,7 @@
 ﻿using DesignStudioErp.Application.Interfaces.Context;
 using DesignStudioErp.Domain;
 using DesignStudioErp.Persistence.EntityConfigurations;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace DesignStudioErp.Persistence.Context;
