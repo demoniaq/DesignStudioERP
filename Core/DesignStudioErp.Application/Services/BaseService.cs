@@ -9,4 +9,10 @@ public abstract class BaseService<TEntity> where TEntity : BaseModel
 
     public BaseService(IRepository<TEntity> repository)
         => _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+
+    public async Task<IEnumerable<TEntity>> GetAllAsync()
+        => await _repository.GetAllAsync();
+
+    public async Task<TEntity> GetByIdAsync(Guid id)
+        => await _repository.GetByIdAsync(id);
 }

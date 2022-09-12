@@ -29,11 +29,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseMode
                 // TODO error
             }
         }
-#pragma warning disable IDE0059 // Ненужное присваивание значения
-#pragma warning disable CS0168 // Переменная объявлена, но не используется
-        catch (DbUpdateException updateException)
-#pragma warning restore CS0168 // Переменная объявлена, но не используется
-#pragma warning restore IDE0059 // Ненужное присваивание значения
+        catch // (DbUpdateException updateException)
         {
             // TODO add error check
             throw;
@@ -55,9 +51,8 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseMode
     {
         var entity = await _dbSet.FirstOrDefaultAsync(x => x.Id == id);
         // TODO add check error for not found
-#pragma warning disable CS8603 // Возможно, возврат ссылки, допускающей значение NULL.
+
         return entity;
-#pragma warning restore CS8603 // Возможно, возврат ссылки, допускающей значение NULL.
     }
 
     public async Task CreateAsync(TEntity entity)
