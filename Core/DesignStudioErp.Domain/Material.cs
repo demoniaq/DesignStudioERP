@@ -5,10 +5,7 @@
 /// </summary>
 public class Material : BaseModel
 {
-    public Material(string name)
-    {
-        Name = name;
-    }
+    public Material(string name) => Name = name;
 
     /// <summary>
     /// Name of material

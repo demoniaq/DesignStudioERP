@@ -5,10 +5,7 @@
 /// </summary>
 public class MeasUnit : BaseModel
 {
-    public MeasUnit(string name)
-    {
-        Name = name;
-    }
+    public MeasUnit(string name) => Name = name;
 
     /// <summary>
     /// Name of meas

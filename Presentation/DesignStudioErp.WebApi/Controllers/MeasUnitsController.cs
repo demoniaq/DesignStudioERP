@@ -28,9 +28,7 @@ public class MeasUnitsController : BaseController
     [SwaggerResponse((int)ApiStatusCode.OK, Type = typeof(IEnumerable<MeasUnitReadDto>))]
     public async Task<ActionResult<IEnumerable<MeasUnitReadDto>>> GetAllAsync()
     {
-        //var measUnits = await _repository.GetAllAsync();
         var measUnits = await _measUnitService.GetAllAsync();
-
         var measUnitsDto = Mapper.Map<IEnumerable<MeasUnitReadDto>>(measUnits);
 
         return Ok(measUnitsDto);
@@ -44,7 +42,6 @@ public class MeasUnitsController : BaseController
     public async Task<ActionResult<MeasUnitReadDto>> GetMeasUnitByIdAsync([FromRoute] Guid id)
     {
         var measUnit = await _measUnitService.GetByIdAsync(id);
-
         var measUnitDto = Mapper.Map<MeasUnitReadDto>(measUnit);
 
         return Ok(measUnitDto);

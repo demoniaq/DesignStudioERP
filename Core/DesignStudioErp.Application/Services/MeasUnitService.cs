@@ -8,13 +8,7 @@ public class MeasUnitService : BaseService<MeasUnit>, IMeasUnitService
 {
     public MeasUnitService(IRepository<MeasUnit> repository) : base(repository) { }
 
-    public async Task<IEnumerable<MeasUnit>> GetAllAsync()
-    {
-        return await _repository.GetAllAsync();
-    }
+    public async Task<IEnumerable<MeasUnit>> GetAllAsync() => await _repository.GetAllAsync();
 
-    public async Task<MeasUnit> GetByIdAsync(Guid id)
-    {
-        return await _repository.GetByIdAsync(id);
-    }
+    public async Task<MeasUnit> GetByIdAsync(Guid id) => await _repository.GetByIdAsync(id);
 }

@@ -28,7 +28,9 @@ public static class DependencyInjectionExtension
 
         services.AddScoped<IApplicationContext>(provider =>
         {
-            var context = provider.GetService<ApplicationDbContext>() ?? throw new NullReferenceException(nameof(ApplicationDbContext));
+            var context = provider.GetService<ApplicationDbContext>()
+                ?? throw new NullReferenceException(nameof(ApplicationDbContext));
+
             return context;
         });
 
