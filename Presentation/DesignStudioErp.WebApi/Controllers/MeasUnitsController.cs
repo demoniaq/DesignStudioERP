@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 using DesignStudioErp.Application.HandBooks;
 using DesignStudioErp.Application.Interfaces.Services;
 using DesignStudioErp.Dto.MeasDto;
@@ -39,7 +41,7 @@ public class MeasUnitsController : BaseController
     /// </summary>
     [HttpGet("{id}")]
     [SwaggerResponse((int)ApiStatusCode.OK, Type = typeof(MeasUnitReadDto))]
-    public async Task<ActionResult<MeasUnitReadDto>> GetMeasUnitByIdAsync([FromRoute] Guid id)
+    public async Task<ActionResult<MeasUnitReadDto>> GetMeasUnitByIdAsync([FromRoute, Required] Guid id)
     {
         var measUnit = await _measUnitService.GetByIdAsync(id);
         var measUnitDto = Mapper.Map<MeasUnitReadDto>(measUnit);

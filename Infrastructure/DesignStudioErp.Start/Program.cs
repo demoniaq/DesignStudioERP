@@ -52,9 +52,7 @@ using (var scope = app.Services.CreateScope())
         var context = serviceProvider.GetRequiredService<ApplicationDbContext>();
         DbInitializer.Initialize(context);
     }
-#pragma warning disable CS0168 // ���������� ���������, �� �� ������������
     catch (Exception ex)
-#pragma warning restore CS0168 // ���������� ���������, �� �� ������������
     {
         // TODO handle exception
     }
