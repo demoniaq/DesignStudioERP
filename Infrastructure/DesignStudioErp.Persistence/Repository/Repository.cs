@@ -37,7 +37,7 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseMode
         }
     }
 
-    public IQueryable<TEntity> GetAll() => _dbSet.AsQueryable();
+    public IQueryable<TEntity> GetAll() => _dbSet.AsNoTracking().AsQueryable();
 
     public async Task<IEnumerable<TEntity>> GetAllAsync()
     {

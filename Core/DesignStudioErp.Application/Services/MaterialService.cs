@@ -17,7 +17,7 @@ public class MaterialService : BaseService<Material>, IMaterialService
     }
 
     public async Task<IEnumerable<MaterialWithMeasUnitName>> GetAllMaterialWithMeasUnitNameAsync()
-    => await _repository.GetAll()
+    => await GetAll()
             .Join(_measUnitService.GetAll(),
                   material => material.MeasUnitId,
                   measUnit => measUnit.Id,

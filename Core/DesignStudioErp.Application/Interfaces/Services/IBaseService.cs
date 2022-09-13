@@ -4,6 +4,9 @@ namespace DesignStudioErp.Application.Interfaces.Services;
 
 public interface IBaseService<TEntity> where TEntity : BaseModel
 {
+    /// <summary>
+    /// Get all entities
+    /// </summary>
     IQueryable<TEntity> GetAll();
 
     /// <summary>

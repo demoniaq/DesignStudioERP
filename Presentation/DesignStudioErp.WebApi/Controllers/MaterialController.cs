@@ -29,7 +29,6 @@ public class MaterialController : BaseController
     public async Task<ActionResult<IEnumerable<MaterialReadDto>>> GetAllAsync()
     {
         var materials = await _materialService.GetAllMaterialWithMeasUnitNameAsync();
-
         var materialDtos = Mapper.Map<IEnumerable<MaterialReadDto>>(materials);
 
         return Ok(materialDtos);
