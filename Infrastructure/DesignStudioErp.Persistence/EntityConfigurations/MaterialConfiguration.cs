@@ -14,7 +14,7 @@ internal class MaterialConfiguration : BaseEntityConfiguration<Material>, IEntit
         #region Name
         builder.Property(x => x.Name)
                .IsRequired()
-               .HasMaxLength(255);
+               .HasMaxLength(ConfigurationConstants.MaterialNameColumnMaxLength);
         #endregion Name
 
         #region MeasUnit

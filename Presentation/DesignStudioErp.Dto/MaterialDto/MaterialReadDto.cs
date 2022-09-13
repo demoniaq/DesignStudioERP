@@ -12,8 +12,13 @@ public class MaterialReadDto : MaterialBaseDto, IMapWith<Material>
     /// <summary>
     /// Id
     /// </summary>
-    [JsonPropertyOrder(-1)]
+    [JsonPropertyOrder(-2)]
     public Guid Id { get; set; }
 
-    public void Mapping(Profile profile) => profile.CreateMap(typeof(Material), GetType());
+    /// <summary>
+    /// Name of meas unit
+    /// </summary>
+    public string? MeasUnitName { get; set; }
+
+    public void Mapping(Profile profile) => profile.CreateMap(typeof(MaterialWithMeasUnitName), GetType());
 }

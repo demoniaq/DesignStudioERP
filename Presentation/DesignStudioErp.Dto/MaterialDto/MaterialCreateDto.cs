@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 using AutoMapper;
 
 using DesignStudioErp.Domain;
@@ -7,5 +9,11 @@ namespace DesignStudioErp.Dto.MaterialDto;
 
 public class MaterialCreateDto : MaterialBaseDto, IMapWith<Material>
 {
+    /// <summary>
+    /// FK meas
+    /// </summary>
+    [Required]
+    public Guid MeasUnitId { get; set; }
+
     public void Mapping(Profile profile) => profile.CreateMap(typeof(Material), GetType());
 }

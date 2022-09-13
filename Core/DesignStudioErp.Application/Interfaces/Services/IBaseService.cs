@@ -4,8 +4,10 @@ namespace DesignStudioErp.Application.Interfaces.Services;
 
 public interface IBaseService<TEntity> where TEntity : BaseModel
 {
+    IQueryable<TEntity> GetAll();
+
     /// <summary>
-    /// Get all entities
+    /// Get all entities async
     /// </summary>
     Task<IEnumerable<TEntity>> GetAllAsync();
 

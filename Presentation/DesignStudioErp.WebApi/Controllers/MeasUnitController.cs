@@ -12,13 +12,13 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace DesignStudioErp.WebApi.Controllers;
 
 /// <summary>
-/// Meas
+/// MeasUnit
 /// </summary>
-public class MeasUnitsController : BaseController
+public class MeasUnitController : BaseController
 {
     private readonly IMeasUnitService _measUnitService;
 
-    public MeasUnitsController(IMeasUnitService measUnitService)
+    public MeasUnitController(IMeasUnitService measUnitService)
     {
         _measUnitService = measUnitService ?? throw new ArgumentNullException(nameof(measUnitService));
     }
@@ -31,12 +31,9 @@ public class MeasUnitsController : BaseController
     public async Task<ActionResult<IEnumerable<MeasUnitReadDto>>> GetAllAsync()
     {
         var measUnits = await _measUnitService.GetAllAsync();
-        var measUnitsDto = Mapper.Map<IEnumerable<MeasUnitReadDto>>(measUnits);
+        var measUnitsDtos = Mapper.Map<IEnumerable<MeasUnitReadDto>>(measUnits);
 
-        var q1 = _measUnitService.GetMeasUnitCount1();
-        var q2 = _measUnitService.GetMeasUnitCount2();
-
-        return Ok(measUnitsDto);
+        return Ok(measUnitsDtos);
     }
 
     /// <summary>

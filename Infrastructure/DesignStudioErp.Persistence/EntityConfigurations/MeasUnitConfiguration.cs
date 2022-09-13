@@ -13,6 +13,6 @@ internal class MeasUnitConfiguration : BaseEntityConfiguration<MeasUnit>, IEntit
 
         builder.Property(x => x.Name)
                .IsRequired()
-               .HasMaxLength(50);
+               .HasMaxLength(ConfigurationConstants.MeasUnitNameColumnMaxLength);
     }
 }

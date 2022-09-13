@@ -15,9 +15,5 @@ public class MeasUnitReadDto : MeasUnitBaseDto, IMapWith<MeasUnit>
     [JsonPropertyOrder(-1)]
     public Guid Id { get; set; }
 
-    public void Mapping(Profile profile)
-    {
-        // Model => Dto
-        profile.CreateMap(typeof(MeasUnit), GetType());
-    }
+    public void Mapping(Profile profile) => profile.CreateMap(typeof(MeasUnit), GetType());
 }

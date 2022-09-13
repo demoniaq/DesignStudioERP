@@ -7,9 +7,6 @@ namespace DesignStudioErp.Application.Interfaces.Context;
 /// </summary>
 public interface IRepository<TEntity> where TEntity : BaseModel
 {
-    IApplicationContext Context { get; }
-    IQueryable<TEntity> Query { get; }
-
     /// <summary>
     /// Save changes
     /// </summary>
@@ -17,6 +14,11 @@ public interface IRepository<TEntity> where TEntity : BaseModel
 
     /// <summary>
     /// Get all entities
+    /// </summary>
+    IQueryable<TEntity> GetAll();
+
+    /// <summary>
+    /// Get all entities async
     /// </summary>
     Task<IEnumerable<TEntity>> GetAllAsync();
 

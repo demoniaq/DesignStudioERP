@@ -5,10 +5,8 @@
 /// </summary>
 public class MeasUnit : BaseModel
 {
-    public MeasUnit(string name) => Name = name;
-
     /// <summary>
-    /// Name of meas
+    /// Name of meas unit
     /// </summary>
-    public string Name { get; set; }
+    public string? Name { get; set; }
 }

@@ -3,7 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace DesignStudioErp.Application.Interfaces.Context;
+namespace DesignStudioErp.Persistence.Interfaces.Context;
 
 public interface IApplicationContext
 {
@@ -12,7 +12,7 @@ public interface IApplicationContext
     EntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 
     #region DbSets
-    DbSet<MeasUnit> MeasUnits { get; set; }
-    DbSet<Material> Materials { get; set; }
+    DbSet<MeasUnit>? MeasUnits { get; set; }
+    DbSet<Material>? Materials { get; set; }
     #endregion DbSets
 }

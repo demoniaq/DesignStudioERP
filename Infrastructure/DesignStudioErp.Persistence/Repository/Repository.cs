@@ -1,5 +1,6 @@
 ﻿using DesignStudioErp.Application.Interfaces.Context;
 using DesignStudioErp.Domain;
+using DesignStudioErp.Persistence.Interfaces.Context;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -12,9 +13,6 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseMode
 {
     private readonly IApplicationContext _context;
     private readonly DbSet<TEntity> _dbSet;
-
-    IApplicationContext IRepository<TEntity>.Context => _context;
-    IQueryable<TEntity> IRepository<TEntity>.Query => _dbSet;
 
     public Repository(IApplicationContext context)
     {
@@ -38,6 +36,8 @@ public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseMode
             throw;
         }
     }
+
+    public IQueryable<TEntity> GetAll() => _dbSet.AsQueryable();
 
     public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
