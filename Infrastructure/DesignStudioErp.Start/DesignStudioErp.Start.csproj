@@ -12,7 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\DesignStudioErp.Application\DesignStudioErp.Application.csproj" />
     <ProjectReference Include="..\..\Presentation\DesignStudioErp.Dto\DesignStudioErp.Dto.csproj" />
-    <ProjectReference Include="..\..\Presentation\DesignStudioErp.WebApi\DesignStudioErp.WebApi.csproj" />
     <ProjectReference Include="..\DesignStudioErp.Persistence\DesignStudioErp.Persistence.csproj" />
   </ItemGroup>
 </Project>
